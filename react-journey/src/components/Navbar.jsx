@@ -7,14 +7,14 @@ function Navbar() {
             <div className="navbar">
                 <h5>React Learning</h5>
 
-                <ul class="nav-links">
+                <ul className="nav-links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
 
-                <button class="nav-btn">Get Started</button>
+                <button className="nav-btn">Get Started</button>
             </div>
         </>
     );

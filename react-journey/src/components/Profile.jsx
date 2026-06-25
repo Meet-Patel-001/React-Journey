@@ -1,12 +1,13 @@
 import React from "react";
+import './Profile.css';
 
-function Profile({ course }) {
-    const name = "John Doe";
+function Profile({name , role , age }) {
     return (
         <>
             <div className="profile">
-                name: {name}<br />
-                role: {course} Learning<br />
+                Name: {name}<br />
+                Role: {role} <br />
+                Age: {age}<br />
             </div>
         </>
     );
