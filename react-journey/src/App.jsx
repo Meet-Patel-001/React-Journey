@@ -1,10 +1,16 @@
-import './App.css';
-function App() {
+import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Profile from './components/Profile';
+import Footer from './components/Footer';
+
+const App = () => {
   return (
     <>
-    <div className="HEllo">
-      <h1>React Journey</h1>
-      </div>
+      <Navbar />
+      <Hero />
+      <Profile course={Hero.course} />
+      <Footer />
     </>
   );
 }
