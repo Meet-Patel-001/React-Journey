@@ -2,7 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  color: #ffffff !important;
+  color: #fff9f9 !important;
   font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,4 +15,11 @@ body {
   color: #ffffff !important;
   margin: 0;
   padding: 0;
+}
+input,
+textarea,
+button,
+select {  
+  background-color: #191616 !important ;
+  color: #fff9f9 !important;
 }
