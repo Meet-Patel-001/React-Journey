@@ -7,6 +7,7 @@ import Count from './components/Counter';
 import UserList from './components/UserList';
 import Status from './components/LoginStatus';
 import UserForm from './components/UserForm';
+import StudentManager from './components/StudentManager/StudentManager';
 
 const App = () => {
   return (
@@ -21,7 +22,8 @@ const App = () => {
       {/* <Count /> */}
       {/* <UserList  /> */}
       {/* <Status /> */}
-      <UserForm />
+      {/* <UserForm /> */}
+      <StudentManager />
       <Footer />
     </>
   );

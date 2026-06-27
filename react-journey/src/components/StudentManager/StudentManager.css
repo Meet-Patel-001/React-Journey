@@ -1,0 +1,106 @@
+/* Base Page Settings */
+body {
+    background-color: #2756b5;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Outer wrapper holding both sections */
+.manager-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    align-items: flex-start;
+}
+
+/* Card Styling for both sections */
+.form-card, .student-list-card {
+    background-color: #b22424;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    flex: 1; /* Gives both elements equal width split */
+}
+
+/* Form Layout rules */
+.form-card h1, .student-list-card h2 {
+    color: #1f2937;
+    margin-bottom: 6px;
+    font-size: 22px;
+}
+
+.form-card p, .empty-message {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.form-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-card label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 6px;
+}
+
+.form-card input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form-card input:focus {
+    border-color: #3b82f6;
+    background-color: #ffffff;
+}
+
+.form-card button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 12px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.form-card button:hover {
+    background-color: #2563eb;
+}
+
+/* List Formatting */
+.student-list-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.student-list-card li {
+    background-color: #0f5aa5;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    font-size: 15px;
+}
+
+/* Responsiveness for mobile screens */
+@media (max-width: 768px) {
+    .manager-container {
+        flex-direction: column;
+    }
+}
