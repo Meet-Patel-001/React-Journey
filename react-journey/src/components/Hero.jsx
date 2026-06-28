@@ -7,7 +7,7 @@ function Hero() {
             <div className="hero">
                 Welcome to React Journey!<br />
                 Learning {course}<br/>
-                Day 2
+                Day 3
             </div>
         </>
     );

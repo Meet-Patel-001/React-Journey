@@ -1,12 +1,14 @@
 import React from "react";
 import "./StudentManager.css";
+import StudentForm from "./StudentForm";
+import StudentList from "./StudentList";
 
 function StudentManager() {
     const [studentName, setStudentName] = React.useState("");
     const [studentAge, setStudentAge] = React.useState("");
     const [studentCourse, setStudentCourse] = React.useState("");
     const [students, setStudents] = React.useState([]);
-    const [isEditing, setIsEditing] = React.useState(false);
+    const [isEditing, setIsEditing] = React.useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -39,47 +41,22 @@ function StudentManager() {
 
     return (
         <div className="manager-container">
-            <div className="form-card">
-                <h1>Student Manager</h1>
-                <p>Manage your students here.</p>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" name="name" value={studentName} onChange={(e) => setStudentName(e.target.value)} />
+            <StudentForm 
+                studentName={studentName}
+                studentAge={studentAge}
+                studentCourse={studentCourse}
+                isEditing={isEditing}
+                handleSubmit={handleSubmit}
+                setStudentName={setStudentName}
+                setStudentAge={setStudentAge}
+                setStudentCourse={setStudentCourse}
+            />
 
-                    <label htmlFor="age">Age:</label>
-                    <input type="number" id="age" name="age" value={studentAge} onChange={(e) => setStudentAge(e.target.value)} />
-
-                    <label htmlFor="course">Course:</label>
-                    <input type="text" id="course" name="course" value={studentCourse} onChange={(e) => setStudentCourse(e.target.value)} />
-
-                    {isEditing !== null ? (
-                        <button type="submit">Update Student</button>
-                    ) : (
-                        <button type="submit">Add Student</button>
-                    )}
-                </form>
-            </div>
-
-            <div className="student-list-card">
-                <h2>Student List</h2>
-                {students.length === 0 ? (
-                    <p className="empty-message">No students added yet.</p>
-                ) : (
-                    <ul>
-                        {students.map((student, index) => (
-                            <li key={index}>
-                                <p>{index + 1}. <strong>{student.name}</strong></p>
-                                <p>({student.age} yrs) </p>
-                                <p>{student.course}</p>
-                                <p>
-                                    <button onClick={() => handleEdit(index)}>Edit</button>
-                                    <button onClick={() => handleDelete(index)}>Delete</button>
-                                </p>
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
+            <StudentList 
+                students={students}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+            />
         </div>
     );
 }

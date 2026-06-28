@@ -1,12 +1,12 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Profile from './components/Profile';
+// import Profile from './components/Profile';
 import Footer from './components/Footer';
-import Count from './components/Counter';
-import UserList from './components/UserList';
-import Status from './components/LoginStatus';
-import UserForm from './components/UserForm';
+// import Count from './components/Counter';
+// import UserList from './components/UserList';
+// import Status from './components/LoginStatus';
+// import UserForm from './components/UserForm';
 import StudentManager from './components/StudentManager/StudentManager';
 
 const App = () => {
