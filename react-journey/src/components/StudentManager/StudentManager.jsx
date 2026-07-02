@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import "./StudentManager.css";
 import StudentForm from "./StudentForm";
 import StudentList from "./StudentList";
@@ -7,11 +7,17 @@ function StudentManager() {
     const [studentName, setStudentName] = React.useState("");
     const [studentAge, setStudentAge] = React.useState("");
     const [studentCourse, setStudentCourse] = React.useState("");
-    const [students, setStudents] = React.useState([]);
+    const [students, setStudents] = React.useState(() => {
+        const saved = localStorage.getItem("students");
+        return saved ? JSON.parse(saved) : [];  
+    });
     const [isEditing, setIsEditing] = React.useState(null);
     const [error, setError] = React.useState("");
     const usernameRef = React.useRef(null);
 
+    useEffect(() => {
+        localStorage.setItem("students", JSON.stringify(students));
+    }, [students]);
     const handleSubmit = (e) => {
         e.preventDefault();
         if (
@@ -27,7 +33,7 @@ function StudentManager() {
 
         const nameExists = students.some((student, index) => {
             if (isEditing !== null && index === isEditing) return false;
-            return student.name.trim().toLowerCase() === cleanName;
+            return student.name?.trim().toLowerCase() === cleanName;
         });
 
         if (nameExists) {
@@ -66,6 +72,7 @@ function StudentManager() {
     const handleDelete = (index) => {
         const newStudents = students.filter((_, i) => i !== index);
         setStudents(newStudents);
+        localStorage.setItem("students", JSON.stringify(newStudents));
     };
 
     return (
@@ -76,7 +83,7 @@ function StudentManager() {
                 studentAge={studentAge}
                 studentCourse={studentCourse}
                 isEditing={isEditing}
-                error= {error}
+                error={error}
                 handleSubmit={handleSubmit}
                 setStudentName={setStudentName}
                 setStudentAge={setStudentAge}

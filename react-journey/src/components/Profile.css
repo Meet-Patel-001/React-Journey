@@ -1,43 +1,106 @@
-.profile {
-    max-width: 320px;
-    margin: 16px auto;
-    padding: 20px;
-    background: #bec625;
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
-    color: #1f2937;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.profile:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.profile:nth-child(1) {
-    border-left: 5px solid #3b82f6;
-}
-
-.profile:nth-child(2) {
-    border-left: 5px solid #10b981;
-}
-
-.profile:nth-child(3) {
-    border-left: 5px solid #f59e0b;
-}
-
-.profile:nth-child(4) {
-    border-left: 5px solid #ef4444;
-}
-
+/* Container Layout Fixes */
 .profile-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2px;
+    gap: 28px;
+    /* Slightly increased for better spacing */
     justify-content: center;
-    padding: 20px;
+    padding: 40px 20px;
+    background-color: transparent;
+    /* Let the global dark body color (#0f1115) show through */
+}
+
+/* Base Profile Card Design (Dark Glassmorphism) */
+.profile {
+    position: relative;
+    overflow: hidden;
+    max-width: 320px;
+    width: 100%;
+    margin: 0;
+    padding: 28px 24px;
+
+    /* Sleek Dark Glassmorphism Base */
+    background: rgba(30, 41, 59, 0.45);
+    /* Translucent slate-800 */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Subtle dark border that separates it from the pitch-black body */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+
+    /* Deep shadow suited for dark UI environments */
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    /* Clear slate-300 text for high readability */
+
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover & Interactive States */
+.profile:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(30, 41, 59, 0.65);
+    /* Becomes slightly more solid on hover */
+    border-color: rgba(255, 255, 255, 0.15);
+    /* Border brightens slightly */
+}
+
+/* Interactive Gradient Top-Bar Indicator */
+.profile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Expand the gradient accent on hover for an immersive feel */
+.profile:hover::before {
+    height: 8px;
+}
+
+/* Dynamic Gradient Themes & Neon Glow Highlights per Card */
+
+/* Card 1: Vibrant Electric Blue */
+.profile:nth-child(1)::before {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.profile:nth-child(1):hover {
+    /* Rich neon glow effect tailored specifically for dark mode */
+    box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.4);
+}
+
+/* Card 2: Emerald Green */
+.profile:nth-child(2)::before {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.profile:nth-child(2):hover {
+    box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.4);
+}
+
+/* Card 3: Cyberpunk Amber/Orange */
+.profile:nth-child(3)::before {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.profile:nth-child(3):hover {
+    box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.4);
+}
+
+/* Card 4: Crimson/Rose Red */
+.profile:nth-child(4)::before {
+    background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+.profile:nth-child(4):hover {
+    box-shadow: 0 20px 40px -15px rgba(239, 68, 68, 0.4);
 }

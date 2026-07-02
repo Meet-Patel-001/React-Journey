@@ -1,16 +1,48 @@
+/* Modern Interactive Footer CSS */
+
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    /* UX Fix: Changed from 'fixed' to standard layout so it doesn't overlap content */
+    position: relative;
     width: 100%;
-    background: #111827;
-    color: #ffffff;
+    margin-top: auto;
+    /* Pushes the footer to the bottom if using a flex container */
+
+    /* Matching Premium Glassmorphism Theme */
+    background: rgba(15, 23, 42, 0.7);
+    /* Translucent slate-900 */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    color: #94a3b8;
+    /* Muted slate text instead of stark white */
     text-align: center;
-    padding: 18px 20px;
-    font-size: 15px;
+    padding: 24px 20px;
+    /* Slightly more vertical breathing room */
+    font-family: "Inter", "Segoe UI", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+
+    /* Clean, soft separation border */
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+
+    /* Interactive smooth transition if you add links inside */
+    transition: all 0.3s ease;
+}
+
+/* Optional: If you have a container/copyright link inside the footer */
+.footer a {
+    color: #38bdf8;
+    text-decoration: none;
     font-weight: 500;
-    letter-spacing: 0.5px;
-    border-top: 1px solid #374151;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensures it stays on top of other elements */
+    margin-left: 4px;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #60a5fa;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    /* Neon text glow on hover */
 }

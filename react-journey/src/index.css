@@ -1,9 +1,10 @@
+/* Modern, Clean Global Reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  color: #fff9f9 !important;
-  font-family: "Segoe UI", Arial, Helvetica, sans-serif !important;
+  /* REMOVED: color !important and font-family !important 
+     Inheriting from body is the correct, flexible way to do this. */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -11,15 +12,109 @@
 
 html,
 body {
-  background: #191616 !important;
-  color: #ffffff !important;
+  background-color: #0f1115;
+  /* Deeper, richer midnight black instead of muddy brown-black */
+  color: #f1f5f9;
+  /* Slate-100: Soft bright text that doesn't hurt the eyes */
+  font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
 }
+
+/* Base Interactive Form Elements */
 input,
 textarea,
 button,
-select {  
-  background-color: #191616 !important ;
-  color: #fff9f9 !important;
+select {
+  font-family: inherit;
+  font-size: 14px;
+  color: #f1f5f9;
+
+  /* UX Fix: Made inputs slightly lighter than the body so users can actually see them */
+  background-color: #1e222b;
+  border: 1px solid #334155;
+  /* Subtle border for structural clarity */
+  border-radius: 8px;
+  /* Softer, modern corners matching the cards */
+  padding: 10px 14px;
+
+  /* Smooth transitions for interactive focus states */
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus States (Crucial for UX Accessibility) */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #38bdf8;
+  /* Sky blue focus ring matching navbar elements */
+  background-color: #11141a;
+  /* Darkens inside to emphasize typing state */
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+  /* Soft outer glow */
+}
+
+/* Clean Button Overhaul */
+button {
+  background-color: #334155;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 18px;
+}
+
+button:hover {
+  background-color: #475569;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Form Specific Tweaks */
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+select {
+  cursor: pointer;
+  padding-right: 24px;
+  /* Space for the default browser arrow */
+}
+
+/* Hide Number Input Spinners cleanly */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Custom Styled File Input Button */
+input[type="file"] {
+  background-color: transparent;
+  border: 1px dashed #334155;
+  padding: 6px;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #334155;
+  color: #f1f5f9;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  margin-right: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #475569;
 }
